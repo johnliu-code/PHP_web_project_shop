@@ -2,6 +2,7 @@
 
 require('controllers/controller.php');
 
+
 if(isset($_GET["action"])){
     if($_GET["action"] == "products"){
         if(isset($_GET["idProduct"])){
@@ -31,6 +32,18 @@ if(isset($_GET["action"])){
         }
         //supprimerPanier(5, 1);
         // modifierPanier($_GET["idProduct"], $_GET["idOrder"], $_POST['cart_quantity']);
-    }   
-
+    }
+    else{
+        afficherProduits(1); 
+    }  
+    
+}else{
+    afficherProduits(1);
 }
+
+
+
+
+
+
+

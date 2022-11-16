@@ -1,7 +1,6 @@
+<!-----------Session----------->
 <?php
-//Get cart items number and passe to pages
-    $cartcounts = $reqCarts->RowCount();
-    $orderID = 1;
+    session_start();   
 ?>
 
 <base href="http://phptest/TP3_YL_LYJ/" />

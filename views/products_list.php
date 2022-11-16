@@ -1,15 +1,11 @@
 
-<!-----------Session----------->
+<!-----------Initial id----------->
 <?php
-    session_start();   
+//Get cart items number and passe to pages
+    $cartcounts = $reqCarts->RowCount();
+    
+    $orderID = 1;
 ?>
-<!-----------Session method----------->
-<?php 
-
-   $orderID = 1;
-
-?>
-
 
 <!-----------Page title----------->
 <?php $title = "Produits Liste"; ?>

@@ -1,11 +1,9 @@
-<!-----------Session----------->
+
 <?php
-    session_start();   
-?>
-<?php 
-
+//Get cart items number and passe to pages
+    $cartcounts = $reqCarts->RowCount();
+    
     $orderID = 1;
-
 ?>
 
 

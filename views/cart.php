@@ -1,10 +1,7 @@
 
-<!-----------Session----------->
-<?php
-    session_start();   
-?>
 <?php 
 
+    $cartcounts = $reqCarts->RowCount();
     $orderID = 1;
     //print_r($_POST["updateCart"]);
     //print_r($_POST["removeFromCart"]);
@@ -21,7 +18,7 @@
         <h1 class="cart_title">Panier details</h1>
 
         <?php  
-            if($x = 0) {
+            if($cartcounts == 0) {
         ?>
 
         <div class="cart_detais">
@@ -54,24 +51,13 @@
 
                             <?php
                                 $total=0;
-                                $monpanierelement=array();
-                                $monpanierprix=array();
-                                $monpanierquantite=array();
-                                $monpanieramount=array();
-                                $x=0;
-
                                 while ($panier= $reqCarts->fetch())
                                 { 
-                                    $monpanierelement[$x]=$panier['product_name'];
-                                    $monpanierprix[$x]=$panier['price'];
-                                    $monpanierquantite[$x]=$panier['quantity'];
-                                    $monpanieramount[$x]=$panier['price'] * $panier['quantity'];
-
                                     //get stock
-                                    while ($productStock =$reqProducts->fetch()){
+                                    // while ($productStock =$reqProducts->fetch()){
                                         
-                                        if($productStock['product_id'] == $panier['product_id']){
-                                            $stock = $productStock['stock_number'];
+                                    //     if($productStock['product_id'] == $panier['product_id']){
+                                    //         $stock = $productStock['stock_number'];
                                        
                     ?>
 
@@ -91,7 +77,7 @@
                                                             <span class="qt-minus">-</span>
                                                         </div>
                                                         <input type="text" id="item_quantity" name="cart_quantity" class="input-text item-quantity qty_text" step="1" min="0" max=""  value="<?= $panier['quantity'] ?>" title="Qty" size="4" placeholder="" inputmode="numeric">
-                                                        <input type="hidden" name="productstock" class="stock-number" value="<?= $stock ?>" > 
+                                                        
                                                         <div class="quantity-button plus"> 
                                                             <span class="qt-plus">+</span>
                                                         </div>
@@ -112,13 +98,13 @@
                                            
                                             </form>
                                 <?php
-                                            }
-                                        }
+                                          //  }
+                                        // }
                                        
                                         $total=$total+$panier['price'] * $panier['quantity'];
-                                        $x=$x+1;
+                                       
                                     }
-                                    $reqCarts->closeCursor();
+                                    //$reqCarts->closeCursor();
                                 ?>   
                                                 
                                 <tr>
